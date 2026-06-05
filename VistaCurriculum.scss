@@ -1,0 +1,222 @@
+// Variables de Paleta de Colores (Sobrio Azul)
+$primary-blue: #416799;
+$light-blue-bg: #e1e7f0;
+$dark-text: #333333;
+$light-text: #ffffff;
+$gray-muted: #666666;
+$font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// Resets básicos
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-stack;
+    background-color: #f4f6f9;
+    color: $dark-text;
+    line-height: 1.5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+// Contenedor Principal (Simula una hoja A4 en pantallas grandes)
+.cv-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+// HEADER
+.cv-header {
+    display: flex;
+    align-items: stretch;
+    background-color: $light-blue-bg;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .photo-container {
+        background-color: #d0daf0;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+
+        @media (max-width: 600px) {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+    }
+
+    .header-info {
+        background-color: $primary-blue;
+        color: $light-text;
+        flex-grow: 1;
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+    }
+}
+
+// CUERPO DEL CV (Grid responsivo)
+.cv-content {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; // Se vuelve una sola columna en móviles
+    }
+}
+
+// SECCIÓN TÍTULOS (Barras azules horizontales)
+h3 {
+    background-color: $primary-blue;
+    color: $light-text;
+    padding: 6px 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-transform: none;
+}
+
+// COLUMNA IZQUIERDA (Sidebar)
+.cv-sidebar {
+    background-color: $light-blue-bg;
+    padding: 30px 20px;
+
+    .contact-info {
+        margin-bottom: 30px;
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+
+            .icon {
+                margin-right: 10px;
+                font-size: 1.1rem;
+            }
+            .text {
+                word-break: break-word;
+            }
+        }
+    }
+
+    .sidebar-section {
+        margin-bottom: 30px;
+
+        ul {
+            list-style: none;
+            li {
+                font-size: 0.9rem;
+                margin-bottom: 6px;
+                position: relative;
+                padding-left: 12px;
+
+                &::before {
+                    content: "-";
+                    position: absolute;
+                    left: 0;
+                }
+            }
+        }
+
+        .lang-item {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            p { color: $dark-text; }
+        }
+    }
+}
+
+// COLUMNA DERECHA (Contenido Principal)
+.cv-main {
+    padding: 40px 30px;
+    background-color: #ffffff;
+
+    .main-section {
+        margin-bottom: 35px;
+
+        p {
+            font-size: 0.9rem;
+            color: $dark-text;
+            text-align: justify;
+        }
+    }
+
+    // Estilos para Proyectos
+    .project-item {
+        margin-bottom: 20px;
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .date {
+            display: block;
+            font-size: 0.8rem;
+            color: $gray-muted;
+            margin-bottom: 5px;
+        }
+    }
+
+    // Estilos para Datos Académicos
+    .academic-item {
+        margin-bottom: 15px;
+        
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+        p {
+            font-size: 0.85rem;
+            color: $dark-text;
+        }
+    }
+
+    // Lista de preferencias
+    .preferences-list {
+        list-style: none;
+        li {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+    }
+}
